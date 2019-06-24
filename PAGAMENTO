@@ -1,0 +1,18 @@
+valor = float(input('Valor do produto: '))
+pagamento = str(input('Qual a forma de pagamento?'))
+mp = pagamento.strip()
+mp1 = mp.upper()
+if mp1 == 'CARTÃO':
+    vezes = int(input('Em quantas vezes você deseja pagar?'))
+if mp1 == 'DINHEIRO' or mp1 == 'CHEQUE':
+    nv = valor*0.9
+    print('O valor total do produto será de R${}.'.format(nv))
+elif mp1 == 'CARTÃO':
+    if vezes == 1:
+        nv = valor*0.95
+        print('O valor total do produto será de R${:.2f}.'.format(nv))
+    elif vezes == 2:
+        print('O valor total do produto será de R${:.2f}, em duas parcelas de R${:.2f}.'.format(valor, valor/2))
+    elif vezes >= 3:
+        nv = valor*1.20
+        print('O valor inicial do produto terá um acréscimo de 20% e então, \n o valor total será de R${:.2f}, em {} vezes de R${:.2f}.'.format(nv, vezes, nv/vezes))
